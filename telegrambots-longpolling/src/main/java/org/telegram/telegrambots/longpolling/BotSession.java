@@ -186,7 +186,7 @@ public class BotSession implements AutoCloseable {
     }
 
     @NonNull
-    private Request createRequest(TelegramUrl telegramUrl, BotApiMethod<?> apiMethod) throws JsonProcessingException {
+    protected Request createRequest(TelegramUrl telegramUrl, BotApiMethod<?> apiMethod) throws JsonProcessingException {
         return new Request.Builder()
                 .url(buildUrl(telegramUrl, apiMethod.getMethod()))
                 .header("charset", StandardCharsets.UTF_8.name())
@@ -196,7 +196,7 @@ public class BotSession implements AutoCloseable {
     }
 
     @NonNull
-    private HttpUrl buildUrl(TelegramUrl telegramUrl, String methodPath) {
+    protected HttpUrl buildUrl(TelegramUrl telegramUrl, String methodPath) {
         return new HttpUrl
                 .Builder()
                 .scheme(telegramUrl.getSchema())
