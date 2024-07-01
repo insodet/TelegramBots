@@ -531,7 +531,7 @@ public class OkHttpTelegramClient extends AbstractTelegramClient {
         }
     }
 
-    private HttpUrl buildUrl(String methodPath) {
+    protected HttpUrl buildUrl(String methodPath) {
         return new HttpUrl
                 .Builder()
                 .scheme(telegramUrl.getSchema())
